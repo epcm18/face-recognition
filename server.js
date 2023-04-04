@@ -37,7 +37,23 @@ async function start() {
 }
 
 function loadLabeledImages() {
-  const labels = ['Lionel Messi', 'Neymar', 'Luis Suarez']
+  // const labels = ['Lionel Messi', 'Neymar', 'Luis Suarez']
+  const labels = ['AB', 'Aron Finch', 'Chris Gayle', 'Dale Steyn', 'DK', 'FAF DuPlesis', 'Glen Maxwell', 'Harshal Patel', 'Josh Hazelwood', 
+  'Mohomad Siraj', 'Shabaz Ahamed', 'Virat Kohli', 'Wanidu Hasaranga','Yuzvendra Chahal']
+  /*
+  return Promise.all(
+    labels.map(async label => {
+      const descriptions = []
+      for (let i = 1; i <= 5; i++) {
+        const img = await faceapi.fetchImage(`https://raw.githubusercontent.com/epcm18/FaceRecognition/main/sample_2/${label}/${i}.jpg`)
+        const detections = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
+        descriptions.push(detections.descriptor)
+      }
+
+      return new faceapi.LabeledFaceDescriptors(label, descriptions)
+    })
+  )
+ */
   return Promise.all(
     labels.map(async label => {
       const descriptions = []
