@@ -34,7 +34,7 @@ This project was made possible with the help of the following resources:
 
 - [Face API JS library](https://github.com/justadudewhohacks/face-api.js/)
 - [Tensor Flow](https://www.tensorflow.org/)
-- [The Coding Train](https://www.youtube.com/watch?v=CVClHLwv-4I)
+
 
 ## Face-Detection
 
