@@ -26,7 +26,7 @@ You need to run this on a live server otherwise this code won't run in your loca
 
 ## Demo
 
-Check out the [demo website](kkk) to see this face recognition system in action.
+Check out the [demo website](https://facerecognition.epcm18.repl.co/) to see this face recognition system in action.
 
 ## Acknowledgments
 
