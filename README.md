@@ -2,6 +2,10 @@
 
 This project uses the Face API JS library built on Tensor Flow to enable face recognition for any image. With the use of AI, the system is able to quickly identify the name of every character in an image without much performance overhead.
 
+## Results
+[image1](./1.jpg)
+[image2](./2.jpg)
+
 ## Concepts Covered
 
 - Using Face API to detect faces
