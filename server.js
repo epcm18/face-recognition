@@ -1,5 +1,6 @@
 const imageUpload = document.getElementById("imageUpload");
 const loading = document.getElementById("loading"); // Reference to the spinner
+let detectionText = null; // Variable to hold detection count text
 
 Promise.all([
   faceapi.nets.faceRecognitionNet.loadFromUri("/models"),
@@ -19,8 +20,10 @@ async function start() {
   imageUpload.addEventListener("change", async () => {
     console.log("Image uploaded, starting processing...");
 
+    // Clear previous image, canvas, and detection text
     if (image) image.remove();
     if (canvas) canvas.remove();
+    if (detectionText) detectionText.remove(); // Remove previous face detection count
 
     try {
       // Show the loading spinner
@@ -40,6 +43,10 @@ async function start() {
       faceapi.matchDimensions(canvas, displaySize);
       console.log("Canvas created and matched to image size:", displaySize);
 
+      // Clear any previous results on the canvas
+      const context = canvas.getContext("2d");
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
       // Detect faces and landmarks
       const detections = await faceapi
         .detectAllFaces(image)
@@ -47,8 +54,10 @@ async function start() {
         .withFaceDescriptors();
       console.log("Face detections:", detections);
 
-      // Log the number of faces detected
-      document.body.append("Detected Faces: " + detections.length);
+      // Create and append detection text to show number of detected faces
+      detectionText = document.createElement("div");
+      detectionText.innerText = `Detected Faces: ${detections.length}`;
+      document.body.appendChild(detectionText);
       console.log(`Detected ${detections.length} faces`);
 
       // Resize detections and draw them on the canvas
@@ -60,7 +69,6 @@ async function start() {
       const results = resizedDetections.map((d) =>
         faceMatcher.findBestMatch(d.descriptor)
       );
-      console.log("Face match results:", results);
 
       // Draw face boxes and labels
       results.forEach((result, i) => {

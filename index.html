@@ -11,14 +11,12 @@
     <title>Face Recognition</title>
 
     <style>
-      /* Reset default styling */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
 
-      /* Body styling for centering and full viewport */
       body {
         display: flex;
         flex-direction: column;
@@ -32,14 +30,12 @@
         position: relative;
       }
 
-      /* Title styling */
       h1 {
         margin: 20px 0;
         font-size: 2rem;
         color: #333;
       }
 
-      /* Upload button with fixed position */
       input[type="file"] {
         position: fixed;
         bottom: 20px;
@@ -58,20 +54,29 @@
         border-color: #555;
       }
 
-      /* Canvas for face detection overlay */
+      #container {
+        margin-top: 20px;
+        position: relative;
+        max-width: 90vw;
+        max-height: 60vh;
+        overflow: hidden;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        background-color: #fff;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
       canvas {
         position: absolute;
         top: 0;
         left: 0;
       }
 
-      /* Optional styling for image container */
-      #container {
-        margin-top: 20px;
-        position: relative;
-      }
-
-      /* Spinner styling */
       #loading {
         display: none;
         position: fixed;
